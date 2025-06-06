@@ -131,7 +131,7 @@ export default function GerenciamentoPesoPage() {
               marginBottom: '0.75rem',
               fontWeight: '600'
             }}>
-              Perda de Gordura Saudável
+              Perda Saudável de Gordura 
             </h3>
             <p style={{ color: '#555', lineHeight: '1.5' }}>
               Estratégias para reduzir gordura corporal preservando massa muscular e saúde metabólica.
