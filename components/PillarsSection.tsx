@@ -1,5 +1,3 @@
-// Arquivo: /home/ubuntu/workspace/nextjs-boilerplate/components/PillarsSection.tsx
-
 "use client";
 
 import React from 'react';
@@ -34,45 +32,82 @@ export default function PillarsSection() {
   ];
 
   return (
-    <div style={{padding: '5rem 1rem', backgroundColor: '#f8f9fa'}}>
-      <div style={{maxWidth: '1200px', margin: '0 auto'}}>
-        <div style={{textAlign: 'center', marginBottom: '4rem'}}>
-          <h2 style={{fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem', color: '#343A40'}}>
+    <section style={{
+      padding: '5rem 0',
+      backgroundColor: '#f8f9fa'
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '4rem'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+            color: '#343A40'
+          }}>
             Os Quatro Pilares do Desafio Vitalidade
           </h2>
-          <p style={{fontSize: '1.25rem', color: '#6C757D', maxWidth: '800px', margin: '0 auto'}}>
+          <p style={{
+            fontSize: '1.25rem',
+            color: '#6C757D',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
             Nossa abordagem multidisciplinar integra quatro áreas essenciais para uma transformação completa da sua saúde.
           </p>
         </div>
         
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr ))', gap: '2rem', marginBottom: '6rem'}}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr ))',
+          gap: '2rem',
+          marginBottom: '3rem'
+        }}>
           {pillars.map((pillar, index) => (
             <div 
               key={index} 
               style={{
-                backgroundColor: 'white', 
-                borderRadius: '0.5rem', 
-                overflow: 'hidden', 
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
-                display: 'flex', 
+                backgroundColor: 'white',
+                borderRadius: '0.75rem',
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                display: 'flex',
                 flexDirection: 'column'
               }}
             >
               {/* Conteúdo de texto - PRIMEIRO */}
-              <div style={{padding: '1.5rem', order: '1'}}>
-                <h3 style={{fontSize: '1.5rem', fontWeight: '600', marginBottom: '0.75rem', color: '#2E8B57'}}>
+              <div style={{
+                padding: '1.5rem',
+                order: '1'
+              }}>
+                <h3 style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '600',
+                  marginBottom: '0.75rem',
+                  color: '#2E8B57'
+                }}>
                   {pillar.title}
                 </h3>
-                <p style={{color: '#6C757D', marginBottom: '1rem', lineHeight: '1.6'}}>
+                <p style={{
+                  color: '#6C757D',
+                  marginBottom: '1rem',
+                  lineHeight: '1.6'
+                }}>
                   {pillar.description}
                 </p>
                 <Link 
                   href={pillar.link} 
                   style={{
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    color: '#2E8B57', 
-                    fontWeight: '500', 
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    color: '#2E8B57',
+                    fontWeight: '500',
                     marginBottom: '1rem',
                     textDecoration: 'none'
                   }}
@@ -93,13 +128,17 @@ export default function PillarsSection() {
               </div>
               
               {/* Imagem - SEGUNDO */}
-              <div style={{height: '200px', position: 'relative', order: '2'}}>
+              <div style={{
+                height: '200px',
+                position: 'relative',
+                order: '2'
+              }}>
                 <img
                   src={pillar.image}
                   alt={pillar.title}
                   style={{
-                    width: '100%', 
-                    height: '100%', 
+                    width: '100%',
+                    height: '100%',
                     objectFit: 'cover'
                   }}
                   loading="lazy"
@@ -109,19 +148,32 @@ export default function PillarsSection() {
            ))}
         </div>
         
-        {/* Adicionando título para os links dos pilares */}
-        <div style={{textAlign: 'center', marginBottom: '5rem'}}>
-          <h3 style={{fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#343A40'}}>
+        {/* Links dos pilares */}
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '3rem'
+        }}>
+          <h3 style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            marginBottom: '2rem',
+            color: '#343A40'
+          }}>
             Pilares do Desafio Vitalidade
           </h3>
-          <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem'}}>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '2rem'
+          }}>
             {pillars.map((pillar, index) => (
               <Link 
                 key={index} 
                 href={pillar.link} 
                 style={{
-                  color: '#2E8B57', 
-                  fontWeight: '500', 
+                  color: '#2E8B57',
+                  fontWeight: '500',
                   fontSize: '1.125rem',
                   textDecoration: 'none'
                 }}
@@ -131,13 +183,11 @@ export default function PillarsSection() {
             ))}
           </div>
         </div>
-        
-        {/* Espaçamento adicional antes do footer */}
-        <div style={{paddingBottom: '6rem'}}></div>
       </div>
-    </div>
+    </section>
   );
 }
+
 
 
 
