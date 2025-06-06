@@ -37,7 +37,7 @@ export default function PillarsSection() {
       backgroundColor: '#f8f9fa'
     }}>
       <div style={{
-        maxWidth: '1200px',
+        maxWidth: '1400px', // Aumentado para acomodar melhor os 4 cards
         margin: '0 auto',
         padding: '0 1rem'
       }}>
@@ -65,11 +65,11 @@ export default function PillarsSection() {
         
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr )', // Alterado para 4 colunas fixas
-          gap: '1rem', // Reduzido o gap para caber melhor
+          gridTemplateColumns: '1fr 1fr 1fr 1fr', // Forçando exatamente 4 colunas de tamanho igual
+          gap: '1rem', // Espaçamento reduzido entre os cards
           marginBottom: '3rem'
         }}>
-          {pillars.map((pillar, index) => (
+          {pillars.map((pillar, index ) => (
             <div 
               key={index} 
               style={{
@@ -78,16 +78,19 @@ export default function PillarsSection() {
                 overflow: 'hidden',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                width: '100%', // Garantindo que ocupe toda a largura da coluna
+                minWidth: '0' // Importante para evitar overflow
               }}
             >
               {/* Conteúdo de texto - PRIMEIRO */}
               <div style={{
-                padding: '1.25rem', // Reduzido o padding para caber melhor
-                order: '1'
+                padding: '1rem', // Padding reduzido para caber melhor
+                order: '1',
+                flexGrow: 1 // Para que o conteúdo ocupe o espaço disponível
               }}>
                 <h3 style={{
-                  fontSize: '1.25rem', // Reduzido o tamanho da fonte para caber melhor
+                  fontSize: '1.2rem', // Fonte reduzida
                   fontWeight: '600',
                   marginBottom: '0.5rem',
                   color: '#2E8B57'
@@ -97,8 +100,13 @@ export default function PillarsSection() {
                 <p style={{
                   color: '#6C757D',
                   marginBottom: '0.75rem',
-                  lineHeight: '1.5',
-                  fontSize: '0.9rem' // Reduzido o tamanho da fonte para caber melhor
+                  lineHeight: '1.4',
+                  fontSize: '0.85rem', // Fonte reduzida
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 4, // Limita a 4 linhas
+                  WebkitBoxOrient: 'vertical'
                 }}>
                   {pillar.description}
                 </p>
@@ -111,13 +119,13 @@ export default function PillarsSection() {
                     fontWeight: '500',
                     marginBottom: '0.5rem',
                     textDecoration: 'none',
-                    fontSize: '0.9rem' // Reduzido o tamanho da fonte para caber melhor
+                    fontSize: '0.85rem' // Fonte reduzida
                   }}
                 >
                   Saiba mais
                   <svg 
-                    width="16" 
-                    height="16" 
+                    width="14" 
+                    height="14" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24" 
@@ -131,7 +139,7 @@ export default function PillarsSection() {
               
               {/* Imagem - SEGUNDO */}
               <div style={{
-                height: '160px', // Reduzido a altura para caber melhor
+                height: '140px', // Altura reduzida
                 position: 'relative',
                 order: '2'
               }}>
@@ -149,6 +157,20 @@ export default function PillarsSection() {
             </div>
            ))}
         </div>
+        
+        {/* Media query para responsividade em telas menores */}
+        <style jsx global>{`
+          @media (max-width: 1024px) {
+            .pillar-grid {
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+          @media (max-width: 640px) {
+            .pillar-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        `}</style>
         
         {/* Links dos pilares */}
         <div style={{
@@ -189,4 +211,5 @@ export default function PillarsSection() {
     </section>
   );
 }
+
 
