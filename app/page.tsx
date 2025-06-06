@@ -11,7 +11,7 @@ export default function HomePage() {
         width: '100%', 
         height: '100vh', 
         minHeight: '600px',
-        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1920&auto=format&fit=crop  )',
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1920&auto=format&fit=crop )',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -29,7 +29,16 @@ export default function HomePage() {
             Um programa multidisciplinar baseado em ciência para longevidade saudável
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-            <a href="/inscricao" className="btn-primary" >
+            <a href="/inscricao" style={{ 
+              backgroundColor: '#4CAF50', 
+              color: 'white', 
+              padding: '0.75rem 1.5rem', 
+              borderRadius: '0.375rem', 
+              fontWeight: 'bold', 
+              textDecoration: 'none', 
+              display: 'inline-block',
+              transition: 'all 0.3s ease'
+            }} >
               Inscreva-se Agora
             </a>
             <a href="/sobre/programa" style={{ 
@@ -40,7 +49,8 @@ export default function HomePage() {
               fontWeight: 'bold', 
               textDecoration: 'none', 
               border: '1px solid white', 
-              display: 'inline-block' 
+              display: 'inline-block',
+              transition: 'all 0.3s ease'
             }} >
               Saiba Mais
             </a>
@@ -81,5 +91,6 @@ export default function HomePage() {
     </div>
   );
 }
+
 
 
