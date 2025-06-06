@@ -1,75 +1,192 @@
-/* Estilos específicos para a seção de pilares */
+"use client";
 
-/* Garante que o container de texto fique acima da imagem */
-.pillar-card {
-  display: flex;
-  flex-direction: column;
+import React from 'react';
+import Link from 'next/link';
+
+export default function PillarsSection() {
+  const pillars = [
+    {
+      title: "Medicina Regenerativa",
+      description: "Abordagens não intervencionistas para estimular a regeneração celular, focando em autofagia, telômeros e células-tronco.",
+      link: "/pilares/medicina-regenerativa",
+      image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&auto=format&fit=crop"
+    },
+    {
+      title: "Nutrologia",
+      description: "Protocolos nutricionais baseados nas culinárias mediterrânea e asiática, otimizando seu metabolismo com suplementação personalizada.",
+      link: "/pilares/nutrologia",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop"
+    },
+    {
+      title: "Saúde Mental",
+      description: "Técnicas de motivação e enfrentamento da ansiedade, procrastinação e sintomas depressivos relacionados ao estresse moderno.",
+      link: "/pilares/saude-mental",
+      image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop"
+    },
+    {
+      title: "Gerenciamento de Peso",
+      description: "Estratégias para emagrecer sem sofrimento, integrando nutrição, atividade física e abordagens comportamentais.",
+      link: "/pilares/gerenciamento-peso",
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <section style={{
+      padding: '5rem 0',
+      backgroundColor: '#f8f9fa'
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 1rem'
+      }}>
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '4rem'
+        }}>
+          <h2 style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+            color: '#343A40'
+          }}>
+            Os Quatro Pilares do Desafio Vitalidade
+          </h2>
+          <p style={{
+            fontSize: '1.25rem',
+            color: '#6C757D',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            Nossa abordagem multidisciplinar integra quatro áreas essenciais para uma transformação completa da sua saúde.
+          </p>
+        </div>
+        
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr )', // Alterado para 4 colunas fixas
+          gap: '1rem', // Reduzido o gap para caber melhor
+          marginBottom: '3rem'
+        }}>
+          {pillars.map((pillar, index) => (
+            <div 
+              key={index} 
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '0.75rem',
+                overflow: 'hidden',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              {/* Conteúdo de texto - PRIMEIRO */}
+              <div style={{
+                padding: '1.25rem', // Reduzido o padding para caber melhor
+                order: '1'
+              }}>
+                <h3 style={{
+                  fontSize: '1.25rem', // Reduzido o tamanho da fonte para caber melhor
+                  fontWeight: '600',
+                  marginBottom: '0.5rem',
+                  color: '#2E8B57'
+                }}>
+                  {pillar.title}
+                </h3>
+                <p style={{
+                  color: '#6C757D',
+                  marginBottom: '0.75rem',
+                  lineHeight: '1.5',
+                  fontSize: '0.9rem' // Reduzido o tamanho da fonte para caber melhor
+                }}>
+                  {pillar.description}
+                </p>
+                <Link 
+                  href={pillar.link} 
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    color: '#2E8B57',
+                    fontWeight: '500',
+                    marginBottom: '0.5rem',
+                    textDecoration: 'none',
+                    fontSize: '0.9rem' // Reduzido o tamanho da fonte para caber melhor
+                  }}
+                >
+                  Saiba mais
+                  <svg 
+                    width="16" 
+                    height="16" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    style={{marginLeft: '0.25rem'}}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
+              </div>
+              
+              {/* Imagem - SEGUNDO */}
+              <div style={{
+                height: '160px', // Reduzido a altura para caber melhor
+                position: 'relative',
+                order: '2'
+              }}>
+                <img
+                  src={pillar.image}
+                  alt={pillar.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+           ))}
+        </div>
+        
+        {/* Links dos pilares */}
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '3rem'
+        }}>
+          <h3 style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            marginBottom: '2rem',
+            color: '#343A40'
+          }}>
+            Pilares do Desafio Vitalidade
+          </h3>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '2rem'
+          }}>
+            {pillars.map((pillar, index) => (
+              <Link 
+                key={index} 
+                href={pillar.link} 
+                style={{
+                  color: '#2E8B57',
+                  fontWeight: '500',
+                  fontSize: '1.125rem',
+                  textDecoration: 'none'
+                }}
+              >
+                {pillar.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-/* Força o texto a ficar acima da imagem */
-.pillar-text {
-  order: 1;
-}
-
-/* Força a imagem a ficar abaixo do texto */
-.pillar-image {
-  order: 2;
-}
-
-/* Estilos para o título do pilar */
-.pillar-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: var(--verde-vitalidade, #2E8B57);
-}
-
-/* Estilos para a descrição do pilar */
-.pillar-description {
-  color: var(--cinza-medio, #6C757D);
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-/* Estilos para o link "Saiba mais" */
-.pillar-link {
-  display: inline-flex;
-  align-items: center;
-  color: var(--verde-vitalidade, #2E8B57);
-  font-weight: 500;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.pillar-link:hover {
-  text-decoration: underline;
-}
-
-/* Estilos para o ícone de seta */
-.pillar-link svg {
-  margin-left: 0.25rem;
-  transition: transform 0.3s ease;
-}
-
-.pillar-link:hover svg {
-  transform: translateX(3px);
-}
-
-/* Estilos para a imagem */
-.pillar-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.pillar-image:hover img {
-  transform: scale(1.05);
-}
-
-/* Media queries para responsividade */
-@media (max-width: 768px) {
-  .pillar-title {
-    font-size: 1.25rem;
-  }
-}
