@@ -76,14 +76,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav style={{
-          display: 'none',
-          gap: '2rem',
-          alignItems: 'center',
-          '@media (min-width: 768px)': {
-            display: 'flex'
-          }
-        }} className="hidden md:flex">
+        <nav className="hidden md:flex items-center gap-8">
           <NavLink href="/" active={isActive('/')}>
             Início
           </NavLink>
@@ -136,11 +129,10 @@ export default function Navbar() {
                 position: 'absolute',
                 top: '-8px',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                transform: 'translateX(-50%) rotate(45deg)',
                 width: '16px',
                 height: '16px',
                 backgroundColor: 'white',
-                transform: 'translateX(-50%) rotate(45deg)',
                 zIndex: -1
               }}></div>
               
@@ -203,11 +195,10 @@ export default function Navbar() {
                 position: 'absolute',
                 top: '-8px',
                 left: '50%',
-                transform: 'translateX(-50%)',
+                transform: 'translateX(-50%) rotate(45deg)',
                 width: '16px',
                 height: '16px',
                 backgroundColor: 'white',
-                transform: 'translateX(-50%) rotate(45deg)',
                 zIndex: -1
               }}></div>
               
@@ -251,21 +242,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMobileMenu}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            width: '24px',
-            height: '18px',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-            '@media (min-width: 768px)': {
-              display: 'none'
-            }
-          }}
-          className="md:hidden"
+          className="flex flex-col justify-between w-6 h-[18px] bg-transparent border-none cursor-pointer p-0 md:hidden"
           aria-label="Menu"
         >
           <span style={{
@@ -488,3 +465,4 @@ function MobileAccordion({ title, active, children }: { title: string, active: b
     </div>
   );
 }
+
