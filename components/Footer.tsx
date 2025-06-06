@@ -1,3 +1,6 @@
+// components/Footer.tsx
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import SocialIcons from './SocialIcons';
@@ -6,102 +9,121 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-cinza-escuro text-white py-12">
-      <div className="container-custom mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo e Descrição */}
-          <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-white mb-4 inline-block">
-              {/* Removendo a referência "Desafio Vitalidade" conforme solicitado */}
-            </Link>
-            <p className="text-gray-300 mt-4">
-              Transforme sua saúde e bem-estar com nosso programa multidisciplinar baseado em ciência.
-            </p>
-          </div>
-          
-          {/* Links Rápidos */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-gray-300 hover:text-white transition-colors">
-                  Início
-                </Link>
-              </li>
-              <li>
-                <Link href="/sobre/programa" className="text-gray-300 hover:text-white transition-colors">
-                  O Programa
-                </Link>
-              </li>
-              <li>
-                <Link href="/depoimentos" className="text-gray-300 hover:text-white transition-colors">
-                  Depoimentos
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-gray-300 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" className="text-gray-300 hover:text-white transition-colors">
-                  Contato
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Pilares */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Nossos Pilares</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/pilares/medicina-regenerativa" className="text-gray-300 hover:text-white transition-colors">
-                  Medicina Regenerativa
-                </Link>
-              </li>
-              <li>
-                <Link href="/pilares/nutrologia" className="text-gray-300 hover:text-white transition-colors">
-                  Nutrologia
-                </Link>
-              </li>
-              <li>
-                <Link href="/pilares/saude-mental" className="text-gray-300 hover:text-white transition-colors">
-                  Saúde Mental
-                </Link>
-              </li>
-              <li>
-                <Link href="/pilares/gerenciamento-peso" className="text-gray-300 hover:text-white transition-colors">
-                  Gerenciamento de Peso
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Contato e Redes Sociais */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Contato</h3>
-            <p className="text-gray-300 mb-2">
-              Email: contato@desafiovitalidade.com.br
-            </p>
-            <p className="text-gray-300 mb-4">
-              Telefone: (11) 9999-9999
-            </p>
-            
-            <h3 className="text-lg font-semibold mb-2 mt-6">Redes Sociais</h3>
-            {/* Substituindo os SVGs inline pelo componente SocialIcons */}
-            <SocialIcons />
-          </div>
+    <footer style={{
+      backgroundColor: '#343A40',
+      color: 'white',
+      padding: '3rem 0 2rem',
+      marginTop: '2rem'
+    }}>
+      <div style={{
+        maxWidth: '1200px',
+        margin: '0 auto',
+        padding: '0 1rem',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: '2rem'
+      }}>
+        {/* Coluna 1: Logo e Descrição */}
+        <div>
+          <h3 style={{ 
+            fontSize: '1.5rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
+            Desafio Vitalidade
+          </h3>
+          <p style={{ 
+            color: '#CCC', 
+            marginBottom: '1.5rem',
+            lineHeight: '1.6'
+          }}>
+            Transforme sua saúde e bem-estar com nosso programa de 30 dias cientificamente desenvolvido.
+          </p>
+          <SocialIcons />
         </div>
         
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center">
-          <p className="text-gray-400">
-            &copy; {currentYear} Todos os direitos reservados.
+        {/* Coluna 2: Links Principais */}
+        <div>
+          <h4 style={{ 
+            fontSize: '1.2rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
+            Navegação
+          </h4>
+          <nav style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem'
+          }}>
+            <Link href="/" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Início</Link>
+            <Link href="/sobre/programa" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>O Programa</Link>
+            <Link href="/depoimentos" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Depoimentos</Link>
+            <Link href="/blog" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Blog</Link>
+            <Link href="/contato" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Contato</Link>
+          </nav>
+        </div>
+        
+        {/* Coluna 3: Pilares */}
+        <div>
+          <h4 style={{ 
+            fontSize: '1.2rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
+            Pilares do Programa
+          </h4>
+          <nav style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem'
+          }}>
+            <Link href="/pilares/medicina-regenerativa" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Medicina Regenerativa</Link>
+            <Link href="/pilares/nutrologia" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Nutrologia</Link>
+            <Link href="/pilares/saude-mental" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Saúde Mental</Link>
+            <Link href="/pilares/gerenciamento-de-peso" style={{ color: '#CCC', textDecoration: 'none', transition: 'color 0.2s' }}>Gerenciamento de Peso</Link>
+          </nav>
+        </div>
+        
+        {/* Coluna 4: Contato */}
+        <div>
+          <h4 style={{ 
+            fontSize: '1.2rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1rem',
+            color: 'white'
+          }}>
+            Contato
+          </h4>
+          <p style={{ color: '#CCC', marginBottom: '0.5rem' }}>
+            <strong>Email:</strong> contato@desafiovitalidade.com.br
+          </p>
+          <p style={{ color: '#CCC', marginBottom: '0.5rem' }}>
+            <strong>Telefone:</strong> (11) 99999-9999
+          </p>
+          <p style={{ color: '#CCC' }}>
+            <strong>Endereço:</strong> São Paulo, SP
           </p>
         </div>
       </div>
+      
+      {/* Linha de Copyright */}
+      <div style={{
+        borderTop: '1px solid #555',
+        marginTop: '2rem',
+        paddingTop: '1.5rem',
+        textAlign: 'center'
+      }}>
+        <p style={{ color: '#AAA', fontSize: '0.9rem' }}>
+          © {currentYear} Desafio Vitalidade. Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
-   );
+  );
 }
+
 
 
