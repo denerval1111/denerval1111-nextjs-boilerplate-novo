@@ -22,10 +22,20 @@ export default function HomePage() {
         borderBottom: '5px solid #333'
       }} >
         <div style={{ maxWidth: '800px', padding: '20px' }}>
-          <h1 className="titulo-principal" style={{ color: 'white' }}>
+          <h1 className="titulo-principal" style={{ 
+            color: 'white',
+            fontSize: '3.5rem', 
+            fontWeight: 'bold',
+            lineHeight: '1.2',
+            marginBottom: '1rem'
+          }}>
             Envelheça com Vitalidade: Transforme sua Saúde em 30 Dias
           </h1>
-          <p className="subtitulo-principal" style={{ color: 'white' }}>
+          <p className="subtitulo-principal" style={{ 
+            color: 'white',
+            fontSize: '1.5rem',
+            marginBottom: '2rem'
+          }}>
             Um programa multidisciplinar baseado em ciência para longevidade saudável
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
@@ -61,10 +71,19 @@ export default function HomePage() {
       {/* Benefits Section com classes padronizadas */}
       <div style={{ backgroundColor: 'white', padding: '2rem 0', margin: 0 }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
-          <h2 className="titulo-principal">
+          <h2 className="titulo-principal" style={{
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+            color: '#343A40'
+          }}>
             Benefícios do Desafio Vitalidade
           </h2>
-          <p className="subtitulo-principal">
+          <p className="subtitulo-principal" style={{
+            fontSize: '1.25rem',
+            marginBottom: '2rem',
+            color: '#6C757D'
+          }}>
             Transforme sua saúde e bem-estar com nosso programa de 30 dias cientificamente desenvolvido.
           </p>
 
