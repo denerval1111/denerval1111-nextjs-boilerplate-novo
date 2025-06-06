@@ -1,20 +1,34 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import ActionButton from '@/components/ActionButton';
 
+interface FormData {
+  nome: string;
+  email: string;
+  telefone: string;
+  objetivo: string;
+}
+
+interface FormErrors {
+  nome?: string;
+  email?: string;
+  telefone?: string;
+  objetivo?: string;
+}
+
 export default function InscricaoPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     nome: '',
     email: '',
     telefone: '',
     objetivo: ''
   });
   
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -22,16 +36,16 @@ export default function InscricaoPage() {
     }));
     
     // Limpar erro quando o usuário começa a digitar
-    if (errors[name]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
-        [name]: null
+        [name]: undefined
       }));
     }
   };
   
-  const validateForm = () => {
-    const newErrors = {};
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
     
     if (!formData.nome.trim()) {
       newErrors.nome = 'Nome é obrigatório';
@@ -55,7 +69,7 @@ export default function InscricaoPage() {
     return Object.keys(newErrors).length === 0;
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (validateForm()) {
@@ -447,5 +461,6 @@ export default function InscricaoPage() {
     </div>
   );
 }
+
 
 
