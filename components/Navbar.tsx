@@ -52,7 +52,8 @@ export default function Navbar() {
       style={{
         backgroundColor: scrolled ? 'white' : 'rgba(255, 255, 255, 0.9)',
         boxShadow: scrolled ? '0 4px 6px rgba(0, 0, 0, 0.05)' : 'none',
-        backdropFilter: 'blur(10px)'
+        backdropFilter: 'blur(10px)',
+        zIndex: 9999
       }}
     >
       <div style={{ 
@@ -61,7 +62,8 @@ export default function Navbar() {
         padding: '0 1rem',
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%'
       }}>
         {/* Logo */}
         <Link href="/" style={{
@@ -76,7 +78,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex md:items-center md:gap-8" style={{ display: 'none' }}>
           <NavLink href="/" active={isActive('/')}>
             Início
           </NavLink>
@@ -120,7 +122,8 @@ export default function Navbar() {
                 transition: 'all 0.2s ease',
                 transformOrigin: 'top center',
                 padding: '0.5rem 0',
-                marginTop: '0.5rem'
+                marginTop: '0.5rem',
+                zIndex: 9999
               }}
               className="group-hover:opacity-100 group-hover:visible"
             >
@@ -186,7 +189,8 @@ export default function Navbar() {
                 transition: 'all 0.2s ease',
                 transformOrigin: 'top center',
                 padding: '0.5rem 0',
-                marginTop: '0.5rem'
+                marginTop: '0.5rem',
+                zIndex: 9999
               }}
               className="group-hover:opacity-100 group-hover:visible"
             >
@@ -239,11 +243,192 @@ export default function Navbar() {
           </Link>
         </nav>
         
+        {/* Desktop Navigation - Alternativa sem Tailwind */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '2rem'
+        }} className="desktop-nav">
+          <NavLink href="/" active={isActive('/')}>
+            Início
+          </NavLink>
+          
+          {/* Dropdown - Sobre */}
+          <div style={{ position: 'relative' }} className="group">
+            <button 
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                color: isSubActive(['/sobre', '/depoimentos']) ? '#2E8B57' : '#343A40',
+                fontWeight: '500',
+                padding: '0.5rem 0',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                position: 'relative'
+              }}
+              className="hover:text-verde-vitalidade transition-colors"
+            >
+              Sobre
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+                width: '200px',
+                opacity: 0,
+                visibility: 'hidden',
+                transition: 'all 0.2s ease',
+                transformOrigin: 'top center',
+                padding: '0.5rem 0',
+                marginTop: '0.5rem',
+                zIndex: 9999
+              }}
+              className="dropdown-menu"
+            >
+              {/* Seta do dropdown */}
+              <div style={{
+                position: 'absolute',
+                top: '-8px',
+                left: '50%',
+                transform: 'translateX(-50%) rotate(45deg)',
+                width: '16px',
+                height: '16px',
+                backgroundColor: 'white',
+                zIndex: -1
+              }}></div>
+              
+              <DropdownLink href="/sobre/programa" active={isActive('/sobre/programa')}>
+                O Programa
+              </DropdownLink>
+              <DropdownLink href="/sobre/equipe" active={isActive('/sobre/equipe')}>
+                Nossa Equipe
+              </DropdownLink>
+              <DropdownLink href="/depoimentos" active={isActive('/depoimentos')}>
+                Depoimentos
+              </DropdownLink>
+            </div>
+          </div>
+          
+          {/* Dropdown - Pilares */}
+          <div style={{ position: 'relative' }} className="group">
+            <button 
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                color: isSubActive(['/pilares']) ? '#2E8B57' : '#343A40',
+                fontWeight: '500',
+                padding: '0.5rem 0',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+              className="hover:text-verde-vitalidade transition-colors"
+            >
+              Pilares
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            <div 
+              style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: 'white',
+                borderRadius: '8px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',
+                width: '220px',
+                opacity: 0,
+                visibility: 'hidden',
+                transition: 'all 0.2s ease',
+                transformOrigin: 'top center',
+                padding: '0.5rem 0',
+                marginTop: '0.5rem',
+                zIndex: 9999
+              }}
+              className="dropdown-menu"
+            >
+              {/* Seta do dropdown */}
+              <div style={{
+                position: 'absolute',
+                top: '-8px',
+                left: '50%',
+                transform: 'translateX(-50%) rotate(45deg)',
+                width: '16px',
+                height: '16px',
+                backgroundColor: 'white',
+                zIndex: -1
+              }}></div>
+              
+              <DropdownLink href="/pilares/medicina-regenerativa" active={isActive('/pilares/medicina-regenerativa')}>
+                Medicina Regenerativa
+              </DropdownLink>
+              <DropdownLink href="/pilares/nutrologia" active={isActive('/pilares/nutrologia')}>
+                Nutrologia
+              </DropdownLink>
+              <DropdownLink href="/pilares/saude-mental" active={isActive('/pilares/saude-mental')}>
+                Saúde Mental
+              </DropdownLink>
+              <DropdownLink href="/pilares/gerenciamento-peso" active={isActive('/pilares/gerenciamento-peso')}>
+                Gerenciamento de Peso
+              </DropdownLink>
+            </div>
+          </div>
+          
+          <NavLink href="/blog" active={isActive('/blog')}>
+            Blog
+          </NavLink>
+          
+          <NavLink href="/contato" active={isActive('/contato')}>
+            Contato
+          </NavLink>
+          
+          <Link href="/inscricao" style={{
+            backgroundColor: '#2E8B57',
+            color: 'white',
+            padding: '0.5rem 1.25rem',
+            borderRadius: '4px',
+            fontWeight: '500',
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 2px 4px rgba(46, 139, 87, 0.25)'
+          }} className="hover:bg-opacity-90 hover:shadow-md">
+            Inscreva-se
+          </Link>
+        </div>
+        
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMobileMenu}
           className="flex flex-col justify-between w-6 h-[18px] bg-transparent border-none cursor-pointer p-0 md:hidden"
           aria-label="Menu"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            width: '24px',
+            height: '18px',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: 0
+          }}
         >
           <span style={{
             display: 'block',
@@ -280,7 +465,7 @@ export default function Navbar() {
         right: 0,
         bottom: 0,
         backgroundColor: 'white',
-        zIndex: 40,
+        zIndex: 9998,
         padding: '1.5rem',
         transform: mobileMenuOpen ? 'translateX(0)' : 'translateX(100%)',
         transition: 'transform 0.3s ease',
@@ -465,4 +650,23 @@ function MobileAccordion({ title, active, children }: { title: string, active: b
     </div>
   );
 }
+
+// Adicione este CSS ao seu arquivo CSS global
+// .group:hover .dropdown-menu {
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+// @media (max-width: 768px) {
+//   .desktop-nav {
+//     display: none;
+//   }
+// }
+
+// @media (min-width: 768px) {
+//   .desktop-nav {
+//     display: flex;
+//   }
+// }
+
 
