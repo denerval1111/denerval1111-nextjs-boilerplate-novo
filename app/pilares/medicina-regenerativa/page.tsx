@@ -1,78 +1,213 @@
+// app/pilares/medicina-regenerativa/page.tsx
 import React from 'react';
+import ActionButton from '@/components/ActionButton';
 
 export default function MedicinaRegenerativaPage() {
   return (
-    <>
-      <main className="min-h-screen py-16 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-4xl">
-          {/* MODIFICAR: Título e subtítulo da página */}
-          <div className="text-center mb-16">
-            <h1 className="titulo-principal">
-              Medicina Regenerativa
-            </h1>
-            <p className="subtitulo-principal">
-              Abordagem não intervencionista para otimização celular e longevidade
+    <div style={{ 
+      maxWidth: '1200px', 
+      margin: '0 auto', 
+      padding: '2rem 1rem' 
+    }}>
+      {/* Hero Section */}
+      <div style={{
+        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=1920&auto=format&fit=crop )',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        color: 'white',
+        padding: '4rem 2rem',
+        borderRadius: '8px',
+        marginBottom: '3rem',
+        textAlign: 'center'
+      }}>
+        <h1 style={{ 
+          fontSize: '2.5rem', 
+          marginBottom: '1rem',
+          fontWeight: 'bold'
+        }}>
+          Medicina Regenerativa
+        </h1>
+        <p style={{ 
+          fontSize: '1.25rem', 
+          maxWidth: '800px', 
+          margin: '0 auto 2rem auto',
+          lineHeight: '1.6'
+        }}>
+          Abordagens não intervencionistas para estimular a regeneração celular, focando em autofagia, telômeros e células-tronco.
+        </p>
+      </div>
+
+      {/* Conteúdo Principal */}
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+        gap: '2rem',
+        marginBottom: '3rem'
+      }}>
+        <div>
+          <h2 style={{ 
+            fontSize: '1.75rem', 
+            color: '#2E8B57', 
+            marginBottom: '1rem',
+            fontWeight: '600'
+          }}>
+            Regeneração Celular Natural
+          </h2>
+          <p style={{ 
+            lineHeight: '1.6', 
+            color: '#555',
+            marginBottom: '1.5rem'
+          }}>
+            Nossa abordagem de medicina regenerativa foca em ativar os mecanismos naturais de reparo e regeneração do seu próprio corpo. Utilizamos protocolos não invasivos baseados nas mais recentes pesquisas científicas sobre longevidade celular.
+          </p>
+          <p style={{ 
+            lineHeight: '1.6', 
+            color: '#555',
+            marginBottom: '1.5rem'
+          }}>
+            Através de intervenções específicas no estilo de vida, nutrição e suplementação, estimulamos processos como autofagia, manutenção de telômeros e ativação de células-tronco endógenas.
+          </p>
+        </div>
+        
+        <div>
+          <h2 style={{ 
+            fontSize: '1.75rem', 
+            color: '#2E8B57', 
+            marginBottom: '1rem',
+            fontWeight: '600'
+          }}>
+            Protocolos Baseados em Evidências
+          </h2>
+          <p style={{ 
+            lineHeight: '1.6', 
+            color: '#555',
+            marginBottom: '1.5rem'
+          }}>
+            Todos os nossos protocolos são fundamentados em pesquisas científicas recentes publicadas em revistas de alto impacto. Integramos conhecimentos de biologia celular, epigenética e medicina do estilo de vida para criar intervenções eficazes e seguras.
+          </p>
+          <p style={{ 
+            lineHeight: '1.6', 
+            color: '#555',
+            marginBottom: '1.5rem'
+          }}>
+            Nossa equipe multidisciplinar está constantemente atualizando nossos protocolos com base nas mais recentes descobertas científicas no campo da longevidade e medicina regenerativa.
+          </p>
+        </div>
+      </div>
+
+      {/* Benefícios */}
+      <div style={{
+        backgroundColor: '#f8f9fa',
+        padding: '2rem',
+        borderRadius: '8px',
+        marginBottom: '3rem'
+      }}>
+        <h2 style={{ 
+          fontSize: '1.75rem', 
+          color: '#343A40', 
+          marginBottom: '1.5rem',
+          textAlign: 'center',
+          fontWeight: '600'
+        }}>
+          Benefícios da Medicina Regenerativa
+        </h2>
+        
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '1.5rem' 
+        }}>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '1.5rem',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+            borderTop: '4px solid #2E8B57'
+          }}>
+            <h3 style={{ 
+              fontSize: '1.25rem', 
+              color: '#2E8B57', 
+              marginBottom: '0.75rem',
+              fontWeight: '600'
+            }}>
+              Aumento da Vitalidade
+            </h3>
+            <p style={{ color: '#555', lineHeight: '1.5' }}>
+              Melhora nos níveis de energia e disposição através da otimização da função mitocondrial e celular.
             </p>
           </div>
           
-          {/* MODIFICAR: Card principal com borda superior verde */}
-          <div className="secao-card mb-12">
-            <h2 className="secao-titulo">
-              O que é Medicina Regenerativa?
-            </h2>
-            <p className="texto-card">
-              A medicina regenerativa não intervencionista foca em estimular os mecanismos naturais do corpo para 
-              reparação e regeneração celular, promovendo a longevidade saudável através de protocolos cientificamente validados.
+          <div style={{
+            backgroundColor: 'white',
+            padding: '1.5rem',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+            borderTop: '4px solid #2E8B57'
+          }}>
+            <h3 style={{ 
+              fontSize: '1.25rem', 
+              color: '#2E8B57', 
+              marginBottom: '0.75rem',
+              fontWeight: '600'
+            }}>
+              Desaceleração do Envelhecimento
+            </h3>
+            <p style={{ color: '#555', lineHeight: '1.5' }}>
+              Protocolos que atuam nos principais marcadores biológicos do envelhecimento, como comprimento dos telômeros e senescência celular.
             </p>
-            
-            {/* Manter o grid, mas modificar cada item */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-              <div className="border-l-4 border-verde-vitalidade pl-4">
-                <h3 className="texto-card font-medium mb-3 text-cinza-escuro">Autofagia</h3>
-                <p className="texto-secundario">
-                  Processo natural de limpeza celular que remove componentes danificados e toxinas, 
-                  essencial para a saúde celular e longevidade.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-verde-vitalidade pl-4">
-                <h3 className="texto-card font-medium mb-3 text-cinza-escuro">Telômeros</h3>
-                <p className="texto-secundario">
-                  Proteção das extremidades dos cromossomos, cujo comprimento está associado ao 
-                  envelhecimento celular e longevidade.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-verde-vitalidade pl-4">
-                <h3 className="texto-card font-medium mb-3 text-cinza-escuro">Células-tronco</h3>
-                <p className="texto-secundario">
-                  Estímulo natural à ativação e funcionamento das células-tronco do próprio corpo, 
-                  fundamentais para regeneração tecidual.
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-verde-vitalidade pl-4">
-                <h3 className="texto-card font-medium mb-3 text-cinza-escuro">Metabolismo Celular</h3>
-                <p className="texto-secundario">
-                  Otimização das funções mitocondriais e processos energéticos celulares para 
-                  melhor desempenho e longevidade.
-                </p>
-              </div>
-            </div>
           </div>
           
-          {/* MODIFICAR: Botão de CTA */}
-          <div className="text-center mt-12">
-            <a 
-              href="/inscricao" 
-              className="btn-primary"
-            >
-              Participe do Desafio Vitalidade
-            </a>
+          <div style={{
+            backgroundColor: 'white',
+            padding: '1.5rem',
+            borderRadius: '8px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+            borderTop: '4px solid #2E8B57'
+          }}>
+            <h3 style={{ 
+              fontSize: '1.25rem', 
+              color: '#2E8B57', 
+              marginBottom: '0.75rem',
+              fontWeight: '600'
+            }}>
+              Recuperação Otimizada
+            </h3>
+            <p style={{ color: '#555', lineHeight: '1.5' }}>
+              Melhora na capacidade de recuperação do corpo após exercícios, estresse ou pequenas lesões.
+            </p>
           </div>
         </div>
-      </main>
-    </>
+      </div>
+
+      {/* Call to Action */}
+      <div style={{
+        textAlign: 'center',
+        marginBottom: '3rem'
+      }}>
+        <h2 style={{ 
+          fontSize: '1.75rem', 
+          color: '#343A40', 
+          marginBottom: '1rem',
+          fontWeight: '600'
+        }}>
+          Pronto para ativar seu potencial regenerativo?
+        </h2>
+        <p style={{ 
+          fontSize: '1.1rem', 
+          color: '#555',
+          maxWidth: '700px',
+          margin: '0 auto 2rem auto',
+          lineHeight: '1.6'
+        }}>
+          Junte-se ao Desafio Vitalidade e tenha acesso a protocolos de medicina regenerativa personalizados baseados nas mais recentes pesquisas científicas.
+        </p>
+        <ActionButton 
+          href="/inscricao" 
+          text="Participe do Desafio Vitalidade" 
+          primary={true}
+        />
+      </div>
+    </div>
   );
 }
 
