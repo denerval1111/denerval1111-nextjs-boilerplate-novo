@@ -4,7 +4,7 @@
 /* Botão primário padronizado */
 .btn-primary {
   display: inline-block;
-  background-color: #2E8B57; /* Verde Vitalidade */
+  background-color: #4CAF50; /* Verde mais vibrante */
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
@@ -18,39 +18,35 @@
 }
 
 .btn-primary:hover {
-  background-color: #267349; /* Verde mais escuro */
+  background-color: #45a049; /* Verde mais escuro */
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Cards de seção com estilo elegante */
+/* Ajustes para garantir consistência com os cards */
 .secao-card {
   background-color: white;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   padding: 2rem;
   margin-bottom: 2rem;
   border: 1px solid #f0f0f0;
   border-top: 4px solid #2E8B57; /* Verde Vitalidade */
-  overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* Aumentar largura mínima para tornar mais retangular */
-  min-width: 400px;
-  height: auto;
 }
 
 .secao-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* Título dentro do card de seção */
 .secao-titulo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+  font-size: 1.75rem;
+  color: #343A40;
+  margin-bottom: 1.5rem;
   line-height: 1.3;
 }
 
@@ -61,60 +57,29 @@
   gap: 2rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
-  /* Centralizar melhor na página */
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
 }
 
 /* Variante para cards de seção lado a lado */
 .secoes-grid {
   display: grid;
-  /* Ajustar para 2 colunas fixas para manter proporção retangular */
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
-  /* Centralizar melhor na página */
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-}
-
-/* Cards container específico para benefícios */
-.cards-container {
-  display: grid;
-  /* Ajustar para 2 colunas fixas para manter proporção retangular */
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-  /* Centralizar melhor na página */
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
 }
 
 /* Media queries para responsividade */
-@media (max-width: 992px) {
-  .secao-card {
-    min-width: auto;
-  }
-  
-  .secoes-grid, .cards-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 768px) {
   .secao-card {
     padding: 1.5rem;
   }
   
   .secao-titulo {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+  }
+  
+  .secoes-grid {
+    grid-template-columns: 1fr;
   }
   
   .btn-primary {
@@ -122,5 +87,6 @@
     padding: 0.75rem 1rem;
   }
 }
+
 
 
