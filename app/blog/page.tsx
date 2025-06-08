@@ -1,5 +1,5 @@
 import { getSortedPostsData, getAllCategories } from '@/lib/posts';
-import PageClient from './page-client';
+import PageClient from './page-client.jsx';
 
 export const metadata = {
   title: 'Blog | Desafio Vitalidade',
