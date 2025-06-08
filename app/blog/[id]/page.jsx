@@ -1,20 +1,21 @@
 import { getAllPostIds, getPostData } from '@/lib/posts';
-import PageClient from './page-client';
-
-export async function generateMetadata({ params }) {
-  const post = await getPostData(params.id);
-  return {
-    title: `${post.title} | Desafio Vitalidade`,
-    description: post.excerpt,
-  };
-}
+import PageClient from './page-client.jsx';
 
 export async function generateStaticParams() {
   const paths = getAllPostIds();
   return paths;
 }
 
-export default async function Post({ params }) {
-  const post = await getPostData(params.id);
-  return <PageClient post={post} />;
+export async function generateMetadata({ params }) {
+  const postData = await getPostData(params.id);
+  return {
+    title: `${postData.title} | Desafio Vitalidade`,
+    description: postData.excerpt,
+  };
 }
+
+export default async function Post({ params }) {
+  const postData = await getPostData(params.id);
+  return <PageClient postData={postData} />;
+}
+
