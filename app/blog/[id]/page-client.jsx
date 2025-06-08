@@ -3,21 +3,17 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function PostPage({ post }) {
+export default function PostPage({ postData }) {
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('pt-BR', options);
   };
 
   return (
-    <div style={{ 
-      maxWidth: '900px', 
-      margin: '0 auto', 
-      padding: '2rem 1rem' 
-    }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
       {/* Hero Section */}
       <div style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${post.image})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${postData.image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         color: 'white',
@@ -30,41 +26,40 @@ export default function PostPage({ post }) {
           display: 'inline-block',
           backgroundColor: 'rgba(46, 139, 87, 0.8)',
           color: 'white',
-          padding: '0.25rem 0.75rem',
+          padding: '0.5rem 1rem',
           borderRadius: '50px',
           fontSize: '0.9rem',
           fontWeight: '500',
-          marginBottom: '1rem'
+          marginBottom: '1.5rem'
         }}>
-          {post.category}
+          {postData.category}
         </span>
-        
         <h1 style={{ 
           fontSize: '2.5rem', 
           marginBottom: '1rem',
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          maxWidth: '900px',
+          margin: '0 auto 1.5rem auto'
         }}>
-          {post.title}
+          {postData.title}
         </h1>
-        
         <div style={{
           display: 'flex',
-          justifyContent: 'center',
           alignItems: 'center',
+          justifyContent: 'center',
           gap: '1rem',
-          marginTop: '1.5rem'
+          fontSize: '0.9rem'
         }}>
-          <span style={{ fontSize: '0.95rem' }}>
-            Por {post.author}
-          </span>
-          <span style={{ fontSize: '0.95rem' }}>
-            {formatDate(post.date)}
-          </span>
+          <span>Por {postData.author}</span>
+          <span>•</span>
+          <span>{formatDate(postData.date)}</span>
         </div>
       </div>
 
       {/* Article Content */}
-      <article style={{
+      <div style={{
+        maxWidth: '800px',
+        margin: '0 auto',
         backgroundColor: 'white',
         borderRadius: '8px',
         padding: '2rem',
@@ -73,50 +68,17 @@ export default function PostPage({ post }) {
       }}>
         <div 
           className="blog-content"
-          dangerouslySetInnerHTML={{ __html: post.contentHtml }} 
-          style={{
-            lineHeight: '1.8',
-            color: '#333'
-          }}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }} 
         />
-        
-        {/* Tags */}
-        {post.tags && post.tags.length > 0 && (
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '0.5rem',
-            marginTop: '3rem',
-            paddingTop: '1.5rem',
-            borderTop: '1px solid #eee'
-          }}>
-            {post.tags.map((tag) => (
-              <Link 
-                key={tag} 
-                href={`/blog/tag/${tag}`}
-                style={{
-                  backgroundColor: '#f1f1f1',
-                  color: '#666',
-                  padding: '0.25rem 0.75rem',
-                  borderRadius: '50px',
-                  fontSize: '0.8rem',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s ease'
-                }}
-                className="hover:bg-gray-200"
-              >
-                #{tag}
-              </Link>
-            ))}
-          </div>
-        )}
-      </article>
+      </div>
 
       {/* Call to Action */}
       <div style={{
+        maxWidth: '800px',
+        margin: '0 auto',
         backgroundColor: '#f9f9f9',
         borderRadius: '8px',
-        padding: '2.5rem 2rem',
+        padding: '2rem',
         textAlign: 'center',
         marginBottom: '3rem'
       }}>
@@ -126,54 +88,54 @@ export default function PostPage({ post }) {
           marginBottom: '1rem',
           fontWeight: '600'
         }}>
-          Pronto para transformar sua saúde?
+          Quer transformar sua saúde e bem-estar?
         </h2>
         <p style={{ 
-          color: '#666',
+          fontSize: '1.1rem', 
+          color: '#555',
           maxWidth: '600px',
           margin: '0 auto 2rem auto',
           lineHeight: '1.6'
         }}>
-          Junte-se ao Desafio Vitalidade e tenha acesso a um programa completo de transformação baseado em ciência.
+          Participe do Desafio Vitalidade e tenha acesso a um programa completo de transformação baseado em ciência.
         </p>
-        
         <Link href="/inscricao" style={{
+          display: 'inline-block',
           backgroundColor: '#2E8B57',
           color: 'white',
           padding: '0.75rem 1.5rem',
-          borderRadius: '4px',
+          borderRadius: '50px',
           fontWeight: '500',
           textDecoration: 'none',
-          display: 'inline-block',
-          transition: 'all 0.3s ease'
-        }} className="hover:bg-opacity-90">
+          transition: 'background-color 0.3s ease'
+        }}>
           Participe do Desafio Vitalidade
         </Link>
       </div>
 
       {/* Back to Blog */}
       <div style={{
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: '3rem'
       }}>
         <Link href="/blog" style={{
-          color: '#2E8B57',
-          fontWeight: '500',
-          textDecoration: 'none',
           display: 'inline-flex',
           alignItems: 'center',
-          gap: '0.5rem'
+          gap: '0.5rem',
+          color: '#2E8B57',
+          fontWeight: '500',
+          textDecoration: 'none'
         }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           Voltar para o Blog
         </Link>
       </div>
-      
-      {/* Add custom CSS for blog content */}
+
       <style jsx global>{`
         .blog-content h1 {
-          font-size: 2.25rem;
+          font-size: 2rem;
           font-weight: 700;
           margin: 2rem 0 1rem;
           color: #333;
@@ -194,26 +156,25 @@ export default function PostPage({ post }) {
         }
         
         .blog-content p {
-          margin-bottom: 1.25rem;
-          line-height: 1.8;
+          margin-bottom: 1.5rem;
+          line-height: 1.7;
+          color: #444;
         }
         
         .blog-content ul, .blog-content ol {
-          margin: 1.25rem 0;
-          padding-left: 1.5rem;
+          margin: 1.5rem 0;
+          padding-left: 2rem;
         }
         
         .blog-content li {
           margin-bottom: 0.5rem;
+          line-height: 1.7;
         }
         
         .blog-content a {
           color: #2E8B57;
           text-decoration: none;
-        }
-        
-        .blog-content a:hover {
-          text-decoration: underline;
+          border-bottom: 1px solid #2E8B57;
         }
         
         .blog-content blockquote {
@@ -255,3 +216,4 @@ export default function PostPage({ post }) {
     </div>
   );
 }
+
